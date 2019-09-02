@@ -8,10 +8,10 @@ class ShoppingList extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreConnector<List<CartItem>, List<CartItem>>(
       converter: (store)=>store.state,
-      builder: (BuildContext context, List vm) {
+      builder: (BuildContext context, List list) {
         return ListView.builder(
-            itemCount: 10,
-            itemBuilder: (BuildContext context, int index) => ShoppingListItem());
+            itemCount: list.length,
+            itemBuilder: (BuildContext context, int index) => ShoppingListItem(item: list[index]));
       },
     );
   }
